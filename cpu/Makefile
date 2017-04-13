@@ -15,14 +15,14 @@ build:
 	docker build -t $(NAME) --build-arg python_version=3.5 -f $(DOCKER_FILE) .
 
 bash: build
-	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/data -v $(ASSETS):/assets --env KERAS_BACKEND=$(BACKEND) $(NAME) bash
+	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/home/keras/data -v $(ASSETS):/home/keras/assets --env KERAS_BACKEND=$(BACKEND) $(NAME) bash
 
 ipython: build
-	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/data -v $(ASSETS):/assets --env KERAS_BACKEND=$(BACKEND) $(NAME) ipython
+	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/home/keras/data -v $(ASSETS):/home/keras/assets --env KERAS_BACKEND=$(BACKEND) $(NAME) ipython
 
 notebook: build
-	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/data -v $(ASSETS):/assets --net=host --env KERAS_BACKEND=$(BACKEND) $(NAME)
+	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/home/keras/data -v $(ASSETS):/home/keras/assets --net=host --env KERAS_BACKEND=$(BACKEND) $(NAME)
 
 test: build
-	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/data -v $(ASSETS):/assets --env KERAS_BACKEND=$(BACKEND) $(NAME) py.test $(TEST)
+	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/home/keras/data -v $(ASSETS):/home/keras/assets --env KERAS_BACKEND=$(BACKEND) $(NAME) py.test $(TEST)
 
