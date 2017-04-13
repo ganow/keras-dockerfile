@@ -12,7 +12,7 @@ SRC=$(shell dirname `pwd`)
 IMAGENAME=ganow/keras-cpu
 
 build:
-	docker build -t $(IMAGENAME) --build-arg python_version=3.5 -f $(DOCKER_FILE) .
+	docker build -t $(IMAGENAME) -f $(DOCKER_FILE) .
 
 bash: build
 	$(DOCKER) run --name $(NAME) -it -v $(SRC):/src -v $(DATA):/home/keras/data -v $(ASSETS):/home/keras/assets --env KERAS_BACKEND=$(BACKEND) $(IMAGENAME) bash
