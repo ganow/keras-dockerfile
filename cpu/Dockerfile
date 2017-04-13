@@ -24,9 +24,9 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
 USER keras
 
 # Python
-ARG python_version=3.5
+ENV PYTHON_VERSION 3.5
 
-RUN conda install -y python=${python_version} && \
+RUN conda install -y python=$PYTHON_VERSION && \
     pip install --upgrade pip && \
     pip install tensorflow && \
     conda install Pillow scikit-learn notebook pandas matplotlib mkl nose pyyaml six h5py && \
