@@ -9,7 +9,7 @@ DOCKER=docker
 BACKEND=tensorflow
 TEST=tests/
 SRC=$(shell dirname `pwd`)
-NAME=keras-cpu
+NAME=ganow/keras-cpu
 
 build:
 	docker build -t $(NAME) --build-arg python_version=3.5 -f $(DOCKER_FILE) .
