@@ -1,6 +1,7 @@
-# keras-dockerfile
+# Using Keras via Docker
 
-Dockerfile modified from [fchollet/keras/docker/](https://github.com/fchollet/keras/tree/master/docker) for [cpu|gpu] mode.
+This directory contains `Dockerfile` to make it easy to get up and running with
+Keras via [Docker](http://www.docker.com/).
 
 ## Installing Docker
 
