@@ -9,7 +9,7 @@ DOCKER=GPU=$(GPU) nvidia-docker
 BACKEND=tensorflow
 TEST=tests/
 SRC=$(shell dirname `pwd`)
-VERSION=0.1
+VERSION=0.2
 IMAGENAME=ganow/keras:$(VERSION)
 
 build:
