@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu14.04
+FROM nvidia/cuda:8.0-cudnn5-runtime-ubuntu14.04
 
 ENV CONDA_DIR /opt/conda
 ENV PATH $CONDA_DIR/bin:$PATH
@@ -38,7 +38,8 @@ RUN conda install -y python=${python_version} && \
     pip install git+git://github.com/fchollet/keras.git && \
     conda clean -yt
 
-ADD theanorc /home/keras/.theanorc
+# ADD theanorc /home/keras/.theanorc
+ADD theanorc /.theanorc
 
 ENV PYTHONPATH='/src/:$PYTHONPATH'
 
